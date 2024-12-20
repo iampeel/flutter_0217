@@ -3,37 +3,35 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML 기초 실습</title>
+    <title>내 프로필</title>
   </head>
   <body>
-    <h1>가장 큰 제목</h1>
-    <h2>두번째로 큰 제목</h2>
-    <h3>세번째로 큰 제목</h3>
-    <h4>네번째로 큰 제목</h4>
-    <h5>다섯번째로 큰 제목</h5>
-    <h6>여섯번째로 큰 제목</h6>
-    <p>단락을 나타내는 태그</p>
-    <strong>굵은 글씨</strong>
-    <em>기울임 글씨</em>
-    <u>밑줄 글씨</u>
-    <small>작은 글씨</small>
-    <mark>노란 배경 글씨</mark>
-    <del>삭제된 글씨</del>
-    <ins>추가된 글씨</ins>
-    <sub>아래첨자</sub>
-    <sup>위첨자</sup>
-
-    <a href="https://www.naver.com">네이버</a>
-    <a href="https://www.naver.com" target="_blank">네이버</a>
-    <a href="https://www.naver.com" target="_blank">
-      <img src="https://www.naver.com/favicon.ico" alt="네이버 아이콘">
-    </a>
-
-    <!-- 폼태그는 사용자의 입력을 받아서 서버로 전송하는 태그 -->
-    <form action="https://naver.com/action" method="get">
-      <input type="text" name="username" placeholder="아이디">
-      <input type="password" name="password" placeholder="비밀번호">
-      <button type="submit">로그인</button>
-    </form>
+    <header>
+      <h1>배정만의 프로필</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#about">소개</a></li>
+        <li><a href="#skills">기술</a></li>
+        <li><a href="#contact">연락처</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="about">
+        <h2>소개</h2>
+        <p>배정만의 프로필입니다.</p>
+      </section>
+      <section id="skills" style="height: 1000px;">
+        <h2>기술</h2>
+        <p>배정만의 기술입니다.</p>
+      </section>
+      <section id="contact">
+        <h2>연락처</h2>
+        <p>배정만의 연락처입니다.</p>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 배정만의 프로필</p>
+    </footer>
   </body>
 </html>
