@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>자바스크립트 기초</title>
   </head>
   <body>
     <h1>자바스크립트 기초 실습 예제</h1>
-    <p>이 문서를 브라우저에서 열고, Cmd + Option + I 또는 F12 를 눌러 Consonle을 확인하세요.</p>
+    <p>
+      이 문서를 브라우저에서 열고, Cmd + Option + I 또는 F12 를 눌러 Consonle을
+      확인하세요.
+    </p>
     <script>
+      console.log("Javascript 실습 예제");
+      // 1. 데이터 타입
+      let num = 10;
+      const number = 10;
+      num = 11; // 변수는 변경 가능
+      // number = 12; // 상수는 변경 불가능
 
+      let str = "Hello Javascript!"; // 문자열
+      let str1 = "hello, world!";
+
+      let isActive = true; // true, false 참, 거짓을 의미하는 변수
+      let emptyValue = null; // 값이 없음을 의미하는 null
+      let undefinedValue;
+
+      console.log(emptyValue, undefinedValue);
+      console.log(emptyValue == undefinedValue); // 값이 없다는 의미에서 같아서 true
+      console.log(emptyValue === undefinedValue); // 타입이 달라서 false
+
+      console.log("typeof num:", typeof num);
+      console.log("typeof str:", typeof str);
+      console.log("typeof isActive:", typeof isActive);
+      console.log("typeof emptyValue:", typeof emptyValue); 
+      console.log("tpyeof undefiedValue:", typeof undefinedValue);
     </script>
   </body>
 </html>
