@@ -135,43 +135,59 @@
       // }
 
       // 5. 함수
-      console.log("------------------");
-      console.log("5. 함수");
-      console.log("------------------");
+      // console.log("------------------");
+      // console.log("5. 함수");
+      // console.log("------------------");
 
-      // 5-1. 함수 선언문
-      function sayHello(name) {
-        console.log("안녕하세요, " + name + "님!");
-        // 반환 값이 없는 함수
-      }
+      // // 5-1. 함수 선언문
+      // function sayHello(name) {
+      //   console.log("안녕하세요, " + name + "님!");
+      //   // 반환 값이 없는 함수
+      // }
 
-      // 함수 호출
-      sayHello("홍길동");
+      // // 함수 호출
+      // sayHello("홍길동");
 
-      // 5-2. 반환 값이 있는 함수
-      function add(a, b) {
-        return a + b;
-      }
-      console.log("add(2, 3) =", add(2, 3));
+      // // 5-2. 반환 값이 있는 함수
+      // function add(a, b) {
+      //   return a + b;
+      // }
+      // console.log("add(2, 3) =", add(2, 3));
 
-      // 5-3. 함수 표현식 (Function Expression)
-      const add = function (a, b) {
-        return a + b;
-      };
-      console.log("add(2, 3) =", add(2, 3));
+      // // 5-3. 함수 표현식 (Function Expression)
+      // const add = function (a, b) {
+      //   return a + b;
+      // };
+      // console.log("add(2, 3) =", add(2, 3));
 
-      // 5-4. 화살표 함수 (Arrow Function)
-      const multiply = (a, b) => {
-        return a * b;
-      };
-      console.log("multiply(4, 5) =", multiply(4, 5));
+      // // 5-4. 화살표 함수 (Arrow Function)
+      // const multiply = (a, b) => {
+      //   return a * b;
+      // };
+      // console.log("multiply(4, 5) =", multiply(4, 5));
 
       // 위의 화살표 함수는 아래와 동일
       // function multiply(a, b) {
       //   return a * b;
       // }
 
+      // (1) 콜백으로 사용할 함수
+      function greeting(name) {
+        console.log("안녕, " + name + "님!");
+        alert("안녕, " + name + "님!");
+      }
 
+      // (2) 함수를 인자로 받아서 내부에서 호출하는 함수
+      function processUserInput(callback) {
+        const userName = prompt("이름을 입력하세요:", "홍길동");
+        if (userName !== null) {
+          callback(userName); // 함수에 함수를 전달(콜백 호출)
+        }
+      }
+      // (3) 실제 호출
+      // processUserInput 함수를 호출하면서 greeting 함수를 인자로 넘김
+      // => greeting 함수가 processUserInput 내부에서 호출됨
+      processUserInput(greeting);
     </script>
   </body>
 </html>
