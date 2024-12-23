@@ -32,8 +32,40 @@
       console.log("typeof num:", typeof num);
       console.log("typeof str:", typeof str);
       console.log("typeof isActive:", typeof isActive);
-      console.log("typeof emptyValue:", typeof emptyValue); 
+      console.log("typeof emptyValue:", typeof emptyValue);
       console.log("tpyeof undefiedValue:", typeof undefinedValue);
+
+
+      console.log("------------------")
+      console.log("2. 연산자")
+      console.log("------------------")
+      let a = 5;
+      let b = 2;
+
+      console.log("a + b =", a + b); // 7
+      console.log("a - b =", a - b); // 3
+      console.log("a * b =", a * b); // 10
+      console.log("a / b =", a / b); // 2.5
+      console.log("a % b =", a % b); // 1 (나머지 연산)
+
+      let greeting = "Hello" + "World!";
+      console.log("문자열 연결", greeting); // 문자열의 덧셈: 문자 이어 붙이기
+
+      let n = 1;
+      let str_n = "1";
+      console.log(n + str_n);
+      console.log(str_n + n);
+
+      // 비교 연산
+      console.log("a == 5:", a == 5); // true
+      console.log("a === '5':", a === "5"); // false (타입까지 비교)
+      console.log("a !== b:", a !== b); // true
+      console.log("a != b:", a != b);
+
+      // 논리 연산
+      console.log("(a > 2) && (b < 5):", a > 2 && b < 5); // true
+      console.log("(a > 6) || (b === 2):", a > 6 || b === 2); // true
+      console.log("!(a === 5):", !(a === 5)); // false
     </script>
   </body>
 </html>
