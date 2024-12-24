@@ -9,8 +9,15 @@ function addTodo(text) {
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   checkbox.classList.add('form-check-input');
+
+  checkbox.addEventListener('change', () => {
+    console.log('checkbox change');
+    // 체크박스 체크 여부에 따라 취소선 추가
+    li.style.textDecoration = checkbox.checked ? 'line-through' : 'none';
+  });
+  
   li.prepend(checkbox); // prepend: 앞에 추가
-  todoList.appendChild(li); // <ul><li class="list-group-item">text</li></ul> 추가
+  todoList.append(li); // <ul><li class="list-group-item">text</li></ul> 추가
 }
 
 document.getElementById('addTodo').addEventListener('click', () => {
