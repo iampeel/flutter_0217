@@ -6,8 +6,12 @@ const todoInput = document.getElementById("todoInput");
 function addTodo(text, checked = false) {
   // li 요소 만들기
   const li = document.createElement("li");
-  li.textContent = text;
-  li.classList.add("list-group-item");
+  li.classList.add(
+    "list-group-item",
+    "d-flex",
+    "align-items-center",
+    "justify-content-between"
+  );
 
   // 체크박스 만들기
   const checkbox = document.createElement("input");
@@ -16,13 +20,18 @@ function addTodo(text, checked = false) {
   // checkbox 요소 checked 프로퍼티에 checked 파라미터의 값 (true/false) 할당
   checkbox.checked = checked;
 
+  // 텍스트 추가
+  const spanElement = document.createElement("span");
+  spanElement.classList.add("ms-2", "flex-grow-1");
+  spanElement.textContent = text;
+
   // 체크박스 상태에 따라 취소선 처리
-  li.style.textDecoration = checked ? "line-through" : "none";
+  spanElement.style.textDecoration = checked ? "line-through" : "none";
 
   // 체크박스 클릭시 처리
   // 체크박스의 값이 변경되면, 여기서 정의한 함수가 실행됨 (지연 실행)
   checkbox.addEventListener("change", () => {
-    li.style.textDecoration = checkbox.checked ? "line-through" : "none";
+    spanElement.style.textDecoration = checkbox.checked ? "line-through" : "none";
 
     // localStorage 업데이트
     const todos = loadTodos();
@@ -31,7 +40,23 @@ function addTodo(text, checked = false) {
     saveTodos(todos);
   });
 
+  // 삭제 버튼 추가
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("btn", "btn-danger", "btn-sm", "ms-2");
+  deleteButton.textContent = "삭제";
+  deleteButton.addEventListener("click", () => {
+    // localStorage 업데이트
+    const todos = loadTodos();
+    const index = Array.from(li.parentElement.children).indexOf(li);
+    todos.splice(index, 1);
+    saveTodos(todos);
+    // 요소 삭제
+    li.remove();
+  });
+
   li.prepend(checkbox);
+  li.append(spanElement);
+  li.append(deleteButton);
   todoListElement.append(li);
 }
 
