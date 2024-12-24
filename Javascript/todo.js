@@ -1,7 +1,10 @@
-// 2. 웹 페이지가 로드되면 실행됨
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOMContentLoaded');
-});
+function addTodo(text) {
+  // 문자열 보간법
+  console.log(`addTodo: ${text}`);
 
-// 1. 파일이 실행되면 실행됨
-console.log('todo.js');
+}
+
+document.getElementById('addTodo').addEventListener('click', () => {
+  const input = document.getElementById('todoInput');
+  addTodo(input.value);
+});
