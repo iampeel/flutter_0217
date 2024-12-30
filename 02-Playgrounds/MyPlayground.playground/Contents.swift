@@ -7,3 +7,8 @@ print(avarageCharactersPerWord)
 
 // 상수는 수정 불가능
 // phrase = "The quick brown fox jumps over the lazy dog"
+
+var anoatherPhrase: String = phrase
+anoatherPhrase = "The quck brown fox jumps over the lazy "
+print(phrase)
+print(anoatherPhrase)
