@@ -19,6 +19,14 @@ struct TicTacToe {
         //   [.empty, .empty, .empty] ]
     }
     
+    subscript(row: Int, column: Int) -> GridPosition {
+        get {
+            return gridStorage[row][column] }
+        set (newValue) {
+            gridStorage[row][column] = newValue
+        }
+    }
+        
     func gameStateString() -> String {
         var stateString = "----------\n"
         for row in gridStorage {
@@ -38,6 +46,23 @@ struct TicTacToe {
 }
 
 var game = TicTacToe()
-game.gridStorage[1][1] = .player1
-game.gridStorage[0][2] = .player2
+game[1, 1] = .player1
 print(game.gameStateString())
+
+game[0, 2] = .player2
+print(game.gameStateString())
+
+game[0, 0] = .player1
+print(game.gameStateString())
+
+game[1, 2] = .player2
+print(game.gameStateString())
+
+game[2, 2] = .player1
+print(game.gameStateString())
+
+let topLeft = game[0, 0]
+let middle = game[1, 1]
+let bottomRight = game[2, 2]
+let p1hasWon = (topLeft == .player1) && (middle == .player1) && (bottomRight == .player1)
+print(p1hasWon)
