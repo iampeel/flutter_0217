@@ -9,13 +9,13 @@
 /// - 참조가 필요
 /// - 상속이 필요할 때
 /// - 인스턴스의 identity를 제어해야할 때
-class Person {
-    let givenName: String
+public class Person {
+    public var givenName: String
     let middleName: String?
     let familyName: String
     var country: String = "KR"
     
-    init(givenName: String, middleName: String? = nil, familyName: String) {
+    public init(givenName: String, middleName: String? = nil, familyName: String) {
         self.givenName = givenName
         self.middleName = middleName
         self.familyName = familyName

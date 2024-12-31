@@ -23,21 +23,21 @@ public func runOptional() {
     //let lastNumberOfFingersHeldUpByFinn: Int = numberOfFingersHeldUpByFinn!
 
     // 조건부 언래핑
-    if let numberOfFingerHeld = numberOfFingersHeldUpByFinn {
+    // Swift 5.7 부터 옵셔널 변수명에 if let 사용 가능
+    if let numberOfFingersHeldUpByFinn {
         // 값이 nil 이 아니면 실행
-        print(numberOfFingerHeld)
+        print(numberOfFingersHeldUpByFinn)
     } else {
-        
         print("모름")
     }
     // if let numberOfFingerHeld  if 구문 안에서만 사용가능
     // guard
-    guard numberOfFingersHeldUpByFinn != nil else {
-        //        값이 없으면 실행
+    guard let numberOfFingersHeldUpByFinn else {
+        // 값이 없으면 실행
         print("모름")
         return
     }
-    print(numberOfFingersHeldUpByFinn!)
+    print(numberOfFingersHeldUpByFinn)
     // guard 구문 이후의 함수 내부에서 계속 사용가능
 //    print(numberOfFingerHeld)
 }

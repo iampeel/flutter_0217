@@ -22,13 +22,13 @@ enum Title: String {
     case ms = "Ms."
     case mrs = "Mrs."
     case dr = "Dr."
-    case other
+    case other // = "other"
 }
 
 enum Gender: Int {
     case male = 1
     case female = 2
-    case other
+    case other // = 3
 }
 
 /// 열거형
@@ -58,7 +58,7 @@ public func runEnum() {
     let _: CompassDirection = CompassDirection.east
 
     // enum 이름을 생략 할 수 있다.
-    let direction: CompassDirection = .east
+    let _: CompassDirection = .east
 
 //    switch direction {
 //        case .north: print("북")
@@ -74,11 +74,8 @@ public func runEnum() {
     let title: Title = .mr
     print(title.rawValue)
 
-
     let gender: Gender = .other
     print(gender.rawValue)
-
-
 
     let earth = Planet.earth
     print(earth.surfaceGravity()) // 9.8

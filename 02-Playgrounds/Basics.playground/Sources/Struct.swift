@@ -10,9 +10,14 @@ import Foundation
 ///  - 간단한 값을 캡슐화 할때
 ///  - 복사본이 원본과 독립적이어야 할 때
 ///  - 상속이 불가능
-struct Point {
-    var x: Int
+public struct Point {
+    public var x: Int
     var y: Int
+    
+    public init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+    }
         
     func distanceFromOrigin() -> Double {
         return sqrt(Double(x * x + y * y))
@@ -51,4 +56,8 @@ public func runStruct() {
     let circle = Circle(radius: 10)
     print(circle.area)
     print(circle.areaFunction())
+    
+    // 값의 복사는 독립적으로 이루어짐 ( 다른 공간에 할당 )
+    let circleCopy = circle
+    print(circleCopy.area)
 }
