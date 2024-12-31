@@ -14,6 +14,12 @@ func fullName(이름 givenName: String = "길동",
     return fullName
 }
 
+
+/// 함수이름
+/// - Parameters:
+///   - string1: 1
+///   - string2: 2
+/// - Returns: 1 " " 2
 func combine(_ string1: String, _ string2: String) -> String {
     return "\(string1) \(string2)"
 }

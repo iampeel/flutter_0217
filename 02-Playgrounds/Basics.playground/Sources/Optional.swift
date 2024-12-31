@@ -30,13 +30,15 @@ public func runOptional() {
         
         print("모름")
     }
-
+    // if let numberOfFingerHeld  if 구문 안에서만 사용가능
     // guard
-    //guard let numberOfFingerHeld = numberOfFingersHeldUpByFinn else {
-    //    값이 없으면 실행
-    //    print("모름")
-    //    return
-    //}
-    //print(numberOfFingerHeld)
+    guard numberOfFingersHeldUpByFinn != nil else {
+        //        값이 없으면 실행
+        print("모름")
+        return
+    }
+    print(numberOfFingersHeldUpByFinn!)
+    // guard 구문 이후의 함수 내부에서 계속 사용가능
+//    print(numberOfFingerHeld)
 }
 
