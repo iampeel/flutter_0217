@@ -5,6 +5,10 @@
 //  Created by Jungman Bae on 12/31/24.
 //
 
+/// 클래스를 사용하는 경우:
+/// - 참조가 필요
+/// - 상속이 필요할 때
+/// - 인스턴스의 identity를 제어해야할 때
 class Person {
     let givenName: String
     let middleName: String?
