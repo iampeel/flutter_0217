@@ -65,6 +65,18 @@ protocol Named {
     func displayName() -> String
 }
 
+extension Named {
+    func printDescription() {
+        print(displayName())
+    }
+}
+
+extension String {
+    func makeUpperCase() -> String {
+        return uppercased()
+    }
+}
+
 class Person2: Named {
     func displayName() -> String {
         return "Person2: \(name)"
@@ -102,3 +114,7 @@ struct Point: Named {
 
 
 
+let person3 = Person2(name: "Jungman")
+person3.printDescription()
+
+print("car".makeUpperCase())
