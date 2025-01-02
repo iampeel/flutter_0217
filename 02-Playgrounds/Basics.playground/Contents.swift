@@ -58,3 +58,47 @@ class Car: Movable {
 let car = Car()
 car.move(to: CGPoint(x: 10, y: 20))
 print(car.postion)
+
+protocol Named {
+    init(name: String)
+    
+    func displayName() -> String
+}
+
+class Person2: Named {
+    func displayName() -> String {
+        return "Person2: \(name)"
+    }
+    
+    let name: String
+    
+    required init(name: String) {
+        self.name = name
+    }
+}
+
+class Friend: Person2 {
+    
+    required init(name: String) {
+        fatalError("init(name:) has not been implemented")
+    }
+    
+    
+    let age: Int
+    
+}
+
+struct Point: Named {
+    func displayName() -> String {
+        return "Point: \(name)"
+    }
+    
+    let name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+
+
