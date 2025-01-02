@@ -6,71 +6,60 @@ import Foundation
 //runStruct()
 //runEnum()
 //runClosure()
-runProtocol()
+//runProtocol()
 
-protocol Payable {
-    func calculateWages() -> Double
+struct Pug {
+    let name: String
 }
 
-protocol TimeOffRequestable {
-    func requestTimeOff(days: Int) -> Bool
+let pugs = [Pug]()
+
+typealias Grumble = [Pug]
+
+var grumble = Grumble()
+
+let marty = Pug(name: "Marty")
+let wolfie = Pug(name: "Wolfie")
+let buddy = Pug(name: "Buddy")
+
+grumble.append(contentsOf: [marty, wolfie, buddy])
+
+enum Channel {
+    case BBC1
+    case BBC2
+    case BBCNews
+    //...
 }
 
-func processEmployee(employee: Payable & TimeOffRequestable) {
-    let wages = employee.calculateWages()
-    let timeOffRequested = employee.requestTimeOff(days: 10)
-}
-
-protocol Container {
-    associatedtype Item
-    mutating func add(_ item: Item)
-    var count: Int { get }
-}
-
-struct IntStack: Container {
-    typealias Item = Int
-    private var items: [Int] = []
+class ProgrammeFetcher {
+    typealias FetchResultHandler = (String?, Error?) -> Void
     
-    mutating func add(_ item: Int) { items.append(item) }
-    var count: Int { items.count }
+    func fetchCurrentProgrammeName(forChannel channel: Channel,
+                                   resultHandler: FetchResultHandler) {
+        // 현재 프로그램을 가져오는 작업 수행
+        let exampleProgramName = "Sherlock"
+        resultHandler(exampleProgramName, nil)
+//      프로그램 정보가 없을때 예시
+//        resultHandler(nil, nil)
+    }
+    
+    func fetchNextProgrammeName(forChannel channel: Channel,
+                                resultHandler: FetchResultHandler) {
+        // 다음 프로그램을 가져오는 작업 수행
+        let exampleProgramName = "Luther"
+        resultHandler(exampleProgramName, nil)
+    }
 }
 
-protocol Describable {
-    var description: String { get }
-}
-
-func printDecription<T: Describable>(_ item: T) {
-    print(item.description)
-}
-
-protocol Runnable {
-    func run()
-}
-
-protocol Swimmable {
-    func swim()
-}
-
-protocol Flyable {
-    func fly()
-}
-
-struct Bird: Flyable, Runnable {
-    func fly() { print("Flying") }
-    func run() { print("Running") }
-}
-
-struct Fish: Swimmable {
-    func swim() { print("Swimming") }
-}
-
-struct Duck: Flyable, Runnable, Swimmable {
-    func fly() { print("Flying") }
-    func run() { print("Running") }
-    func swim() { print("Swimming") }
-}
-
-let duck = Duck()
-duck.fly()
-duck.run()
-duck.swim()
+let fetcher = ProgrammeFetcher()
+fetcher.fetchCurrentProgrammeName(forChannel: .BBC1, resultHandler: { programName, error in
+    guard let programName else {
+        print("No programme found")
+        return
+    }
+    guard error == nil else {
+        print("Error fetching programme: \(error!)")
+        return
+    }
+    print(programName)
+})
