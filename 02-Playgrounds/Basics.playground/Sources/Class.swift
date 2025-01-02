@@ -9,7 +9,7 @@
 /// - 참조가 필요
 /// - 상속이 필요할 때
 /// - 인스턴스의 identity를 제어해야할 때
-public class Person {
+fileprivate class Person {
     public var givenName: String
     let middleName: String?
     let familyName: String
@@ -37,7 +37,7 @@ public class Person {
     }
 }
 
-final class Friend: Person {
+fileprivate final class Friend: Person {
     var whereWeMet: String?
     
     override var displayName: String {
@@ -46,7 +46,7 @@ final class Friend: Person {
 }
 //class BusinessRelation: Friend {} // final 로 인해 더이상 상속 불가
 
-final class Family: Person {
+fileprivate final class Family: Person {
     let relationship: String
     
     init(givenName: String, middleName: String? = nil, familyName: String = "Barker", relationship: String) {
@@ -89,4 +89,14 @@ public func runClass() {
     print(sam.displayName)
     print(maddie.displayName)
     print(mark.displayName)
+    
+    let person1 = Person(givenName: "Jungman", familyName: "Bae")
+
+    // 클래스의 복사는 주소의 복사, 같은 주소를 바라보게 됨. 변경시 같이 변경
+    let person4 = person1
+    person4.givenName = "Jungman2"
+    print(person1.givenName)
+    print(person4.givenName)
+    // ObjectIdentifier 비교
+    print(person1 === person4)
 }
