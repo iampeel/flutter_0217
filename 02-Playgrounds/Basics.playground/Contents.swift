@@ -6,5 +6,5 @@ import Foundation
 //runStruct()
 //runEnum()
 //runClosure()
-//runProtocol()
-runTypealias()
+runProtocol()
+//runTypealias()

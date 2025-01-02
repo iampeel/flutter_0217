@@ -24,6 +24,12 @@ public func runProtocol() {
     duck.fly()
     duck.run()
     duck.swim()
+    
+    var intStack = IntStack()
+    intStack.add(1)
+    intStack.add(2)
+    intStack.add(3)
+    print(intStack.count)
 }
 
 protocol Describable {
@@ -127,10 +133,10 @@ protocol Container {
 
 struct IntStack: Container {
     typealias Item = Int
-    private var items: [Int] = []
     
-    mutating func add(_ item: Int) { items.append(item) }
-    var count: Int { items.count }
+    private var items: [Item] = []
+    mutating func add(_ item: Item) { items.append(item) }
+    var count: Item { items.count }
 }
 
 func printDecription<T: Describable>(_ item: T) {

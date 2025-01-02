@@ -39,6 +39,7 @@ public func runTypealias() {
 struct Pug {
     let name: String
 }
+
 typealias Grumble = [Pug] // == Array<Pug>
 
 enum Channel {
