@@ -23,6 +23,7 @@ public func runClosure() {
     //    return x * y
     //} => 아래와 같이 한 줄로 표현 가능
     let multiply: (Int, Int) -> Int = { x, y in x * y }
+//    let multiply2: (Int, Int) -> Int = { $0 * $1 }
 
     print(multiply(5, 6))
 
