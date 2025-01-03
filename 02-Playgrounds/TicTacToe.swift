@@ -74,6 +74,8 @@ class TicTacToe: GameState {
             if line.allSatisfy({$0 == .o}) {
                 return .o
             }
+        }
+        for line in lines {
             if line.contains(.empty) && (Set<Piece>(line).count < 3) {
                 return nil
             }
