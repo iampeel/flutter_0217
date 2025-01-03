@@ -31,3 +31,26 @@ recentlyCopiedList.add(recent: 2)
 recentlyCopiedList.add(recent: 3)
 var recentlyCopied = recentlyCopiedList.getAll()
 print(recentlyCopied) // Last, Next, First
+
+
+class Person {
+    let name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+let rod = Person(name: "Rod")
+let john = Person(name: "John")
+let freddy = Person(name: "Freddy")
+
+let recentlyVisitedList = RecentList<Person>()
+recentlyVisitedList.add(recent: rod)
+recentlyVisitedList.add(recent: john)
+recentlyVisitedList.add(recent: freddy)
+var recentlyVisited = recentlyVisitedList.getAll()
+
+for person in recentlyVisited {
+    print(person.name)
+}
