@@ -82,7 +82,7 @@ enum ClassificationState {
 class VideoGameReviewClassifier {
     var state: ClassificationState = .initial
 
-    func classify(forStarsOutOf10 stars: Int) async -> VideoGameReviewClass {
+    func classify(forStarsOutOf10 stars: Int) -> VideoGameReviewClass {
         state = .classifying
         print("1")
         defer {
@@ -91,7 +91,7 @@ class VideoGameReviewClassifier {
         }
 
         // 오래 걸리는 작업
-        try? await Task.sleep(nanoseconds: 1_000_000_000)
+//        try? await Task.sleep(nanoseconds: 1_000_000_000)
         print("2")
         if stars > 8 {
             return .brilliant // 9 또는 10
@@ -106,7 +106,7 @@ class VideoGameReviewClassifier {
 }
 
 let classifier = VideoGameReviewClassifier()
-let review1 = await classifier.classify(forStarsOutOf10: 9)
+let review1 = classifier.classify(forStarsOutOf10: 9)
 print(review1) // brilliant
 
 

@@ -126,17 +126,30 @@ func processEmployee(employee: Payable & TimeOffRequestable) {
 }
 
 protocol Container {
-    associatedtype Item
-    mutating func add(_ item: Item)
+    associatedtype T
+    mutating func add(_ item: T)
     var count: Int { get }
 }
 
 struct IntStack: Container {
-    typealias Item = Int
+    typealias T = Int
     
-    private var items: [Item] = []
-    mutating func add(_ item: Item) { items.append(item) }
-    var count: Item { items.count }
+    private var items: [Int] = []
+    mutating func add(_ item: Int) {
+        items.append(item)
+    }
+    var count: Int { items.count }
+}
+
+struct StringStack: Container {
+    var items: [String] = []
+    
+    typealias T = String
+    
+    mutating func add(_ item: String) {
+        items.append(item)
+    }
+    var count: Int { items.count }
 }
 
 func printDecription<T: Describable>(_ item: T) {
