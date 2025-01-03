@@ -78,4 +78,37 @@ let oscars2022 = makeDuplicates(of: "Dune", withKeys: awards)
 
 print(oscars2022["Best Visual Effects"] ?? "")
 
+// 프로토콜과 제네릭
 
+import CoreLocation
+
+protocol TransportLocation {
+    var location: CLLocation { get }
+}
+
+protocol TransportMethod {
+    associatedtype CollectionPoint: TransportLocation
+    
+    var defaultCollectionPoint: CollectionPoint { get }
+    var averageSpeedInKPH: Double { get }
+}
+
+enum TrainStation: String, TransportLocation {
+    case BMS = "Bromley South"
+    case VIC = "London Victoria"
+    case RAI = "Rainhan (Kent)"
+    case BTN = "Brighton (East Sussex)"
+    
+    var location: CLLocation {
+        return CLLocation()
+    }
+}
+
+struct Train: TransportMethod {
+    typealias CollectionPoint = TrainStation
+    
+    var defaultCollectionPoint: CollectionPoint {
+        return TrainStation.BMS
+    }
+    var averageSpeedInKPH: Double { 100 }
+}
