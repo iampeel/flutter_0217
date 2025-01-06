@@ -82,6 +82,7 @@ class RSSNewsArticleBuilder: NSObject, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
+        print("parseFoundCharacters: \(string)")
         if inLink {
             linkString?.append(string)
         }
@@ -89,4 +90,3 @@ class RSSNewsArticleBuilder: NSObject, XMLParserDelegate {
 }
 
 fetchBBCNewsRSSFeed()
-
