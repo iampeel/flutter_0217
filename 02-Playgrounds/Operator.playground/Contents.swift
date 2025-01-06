@@ -26,19 +26,19 @@ let desktop: Int = 1 << 4
 let tv: Int = 1 << 5
 let brainImplant: Int = 1 << 6
 
-var supportedDevices: Int = phone + tablet + tv
+//var supportedDevices: Int = phone + tablet + tv
 
 //   0 0 0 1 0 0 1 1 = supportedDevices
 // & 0 0 0 0 0 0 1 0 = tablet (device)
 // ------------------
 //   0 0 0 0 0 0 1 0 = device
 
-@MainActor
-func isSupported(device: Int) -> Bool {
-    let bitwiseAnd: Int = supportedDevices & device
-    let containsDevice = bitwiseAnd == device
-    return containsDevice
-}
+//@MainActor
+//func isSupported(device: Int) -> Bool {
+//    let bitwiseAnd: Int = supportedDevices & device
+//    let containsDevice = bitwiseAnd == device
+//    return containsDevice
+//}
 
 
 // phone + tablet + tv calculation:
@@ -60,13 +60,41 @@ let statinaryDevice = desktop + tv
 //   0 0 0 0 0 1 1 1 = deviceThatSupportUIKit
 // | 0 0 0 0 1 1 0 0 = statinaryDevice
 // ------------------
-//   0 0 0 0 1 1 1 1 = stationaryOrUIKietDevices
-let stationaryOrUIKietDevices = deviceThatSupportUIKit | statinaryDevice
+//   0 0 0 0 1 1 1 1 = stationaryOrUIKitDevices
+//let stationaryOrUIKitDevices = deviceThatSupportUIKit | statinaryDevice
 
 // Verification of union operation:
 //   0 0 0 0 1 1 1 1 = stationaryOrUIKietDevices
 // = 0 0 0 0 1 1 1 1 = (phone + tablet + tv + desktop)
 // ------------------
 //   true              = orIsUnion
-let orIsUnion = stationaryOrUIKietDevices == (phone + tablet + tv + desktop)
-print(orIsUnion)
+//let orIsUnion = stationaryOrUIKitDevices == (phone + tablet + tv + desktop)
+//print(orIsUnion)
+
+struct Devices: OptionSet {
+    var rawValue: Int
+    
+    static let phone = Devices(rawValue: 1 << 0)
+    static let tablet = Devices(rawValue: 1 << 1)
+    static let watch = Devices(rawValue: 1 << 2)
+    static let laptop = Devices(rawValue: 1 << 3)
+    static let desktop = Devices(rawValue: 1 << 4)
+    static let tv = Devices(rawValue: 1 << 5)
+    static let brainImplant = Devices(rawValue: 1 << 6)
+    
+    static let none: Devices = []
+    static let all: Devices = [.phone, .tablet, .watch, .laptop, .desktop, .tv, .brainImplant]
+    static let stationary: Devices = [.desktop, .tv]
+    static let supportsUIKit: Devices = [.phone, .tablet, .tv]
+}
+
+
+let supportedDevices: Devices = [.phone, .tablet, .watch, .tv]
+
+let phoneIsSupported = supportedDevices.contains(.phone)
+
+// Union / OR
+let stationaryOrUIKitDevices = Devices.supportsUIKit.union(Devices.stationary)
+
+// Intersection / AND
+let stationaryAndUIKitDevices = Devices.supportsUIKit.intersection(Devices.stationary)
