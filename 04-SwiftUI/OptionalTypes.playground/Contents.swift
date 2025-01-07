@@ -1,0 +1,31 @@
+var index: Int?
+index = 3
+
+var treeArray = ["Oak", "Apple", "Banana", "Birch"]
+
+if index != nil {
+    print(treeArray[index!]) // 강제 언래핑
+} else {
+    print("값이 할당되지 않았을때")
+}
+// if let index = index => 축약해서 사용 가능
+if let index {
+    // 이 중괄호 안에서는 옵셔널이 아닌 Int 타입으로 사용 가능
+    print(treeArray[index])
+}
+
+var optionalName1: String?
+var optionalName2: String?
+var optionalName3: String?
+
+optionalName1 = "Swift"
+optionalName2 = "Programming"
+optionalName3 = "Language"
+
+if let name1 = optionalName1,
+   let name2 = optionalName2,
+   let name3 = optionalName3 {
+    print("\(name1) \(name2) \(name3)")
+}
+
+
