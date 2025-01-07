@@ -4,6 +4,8 @@ class BankAccount {
     var accountBalance: Float
     // 계좌 번호를 저장하는 변수 (Int 타입)
     var accountNumber: Int
+    // 수수료
+    let fees: Float = 25.00
     
     // 초기화 메서드(생성자)
     // number: 계좌번호, balance: 초기 잔액을 매개변수로 받습니다
@@ -16,7 +18,15 @@ class BankAccount {
     
     func displayBalance() {
         print("Account number is \(accountNumber)")
-        print("Your balance is \(accountBalance)")
+        print("Your balance is \(balanceLessFees)")
+    }
+    
+    // 전체 잔액에서 수수료를 뺀 금액을 출력하는 computed property
+    var balanceLessFees: Float {
+        // get 키워드는 읽기를 위한 메서드 정의
+        get {
+            return accountBalance - fees
+        }
     }
     
     // 클래스 메서드 (인스턴스 생성 없이 호출 가능)
@@ -28,3 +38,4 @@ class BankAccount {
 
 var account1 = BankAccount(number: 12312312, balance: 400.54)
 account1.displayBalance()
+print(BankAccount.getMaxBalance())
