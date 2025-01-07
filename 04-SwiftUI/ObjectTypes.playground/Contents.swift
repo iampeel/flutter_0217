@@ -39,3 +39,31 @@ class BankAccount {
 var account1 = BankAccount(number: 12312312, balance: 400.54)
 account1.displayBalance()
 print(BankAccount.getMaxBalance())
+
+
+class MyClass {
+    let title: String
+    
+    // lazy 지연해서 생성하도록 하는 키워드
+    // 즉시실행함수(클로저)로 변수를 초기화하는 코드
+    lazy var myProperty: String = {
+        var result = resourceIntensiveTask()
+        result = processData(data: result)
+        return result
+    }()
+    
+    // 오래 걸리는 함수 예시
+    func resourceIntensiveTask() -> String {
+        return "Hello World!"
+    }
+    
+    // 오래 걸리는 작업에 대한 예시 함수
+    func processData(data: String) -> String {
+        return self.title + "!"
+    }
+    
+    init(title: String) {
+        self.title = title
+    }
+}
+
