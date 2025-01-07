@@ -62,6 +62,9 @@ func add(_ a: Int, _ b: Int) -> Int {
     return a + b
 }
 
+print(add(2, 3)) // 5
+
+// 변수의 타입: 함수 타입 = 클로저 타입 `(매개변수) -> (반환값)`
 let mathFunction: (Int, Int) -> Int = add
 print(mathFunction(2, 3)) // 5
 
@@ -69,4 +72,27 @@ let multiply = { (a: Int, b: Int) -> Int in
     return a * b
 }
 
-print(multiply(2, 3)) 
+print(multiply(2, 3))
+
+func performOperation(_ a: Int, _ b: Int, operation: (Int, Int) -> Int) -> Int {
+    return operation(a, b)
+}
+
+let result = performOperation(4, 5, operation: multiply)
+print(result)
+print(performOperation(4, 5) { $0 * $1 })
+
+func makeIncrementer(incrementAmount: Int) -> () -> Int {
+    var total = 0
+    let incrementer: () -> Int = {
+        total += incrementAmount
+        return total
+    }
+    return incrementer
+}
+
+let incrementByTen = makeIncrementer(incrementAmount: 10)
+print(incrementByTen()) // 10
+print(incrementByTen()) // 20
+print(incrementByTen()) // 30
+
