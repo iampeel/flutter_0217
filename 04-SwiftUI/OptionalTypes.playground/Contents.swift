@@ -64,3 +64,18 @@ if let myTextView = myScrollView as? UITextView {
 } else {
     print("UITextView 로 타입 캐스팅 하지 못했습니다.")
 }
+
+// ClosedRange
+let closedRange = 1...5
+
+// Range
+let range = 0..<5
+
+// PartialRangeFrom
+let range2 = 0...
+
+// PartialRangeThrough
+let range3 = ...5
+
+// PartialRangeUpTo
+let range4 = ..<5
