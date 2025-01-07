@@ -41,7 +41,7 @@ account1.displayBalance()
 print(BankAccount.getMaxBalance())
 
 
-class MyClass {
+class MyClass1 {
     let title: String
     
     // lazy 지연해서 생성하도록 하는 키워드
@@ -67,3 +67,20 @@ class MyClass {
     }
 }
 
+// 프로토콜
+protocol MessageBuilder {
+    var name: String { get }
+    func buildMessage() -> String
+}
+
+class MyClass: MessageBuilder {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func buildMessage() -> String {
+        "Hello " + name
+    }
+}
