@@ -140,3 +140,17 @@ class SavingsAccount: BankAccount {
 let savings1 = SavingsAccount(number: 12312312, balance: 400.54, name: "정만", rate: 0.05)
 print(savings1.calculateInterest())
 savings1.displayBalance()
+
+extension Double {
+    var squared: Double {
+        return self * self
+    }
+    
+    var cubed: Double {
+        return self * self * self
+    }
+}
+
+let number: Double = 10.0
+print(number.squared)
+print(number.cubed)
