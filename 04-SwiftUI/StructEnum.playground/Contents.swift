@@ -22,8 +22,14 @@ class SampleClass {
     func buildHelloMsg() -> String {
         return "Hello " + name
     }
+    
+    // 클래스의 값을 복사해서 사용하는 예시 코드
+    func clone() -> SampleClass {
+        return SampleClass(name: name)
+    }
 }
 
+// 값 타입
 let myStruct1 = SampleStruct(name: "Mark")
 var myStruct2 = myStruct1
 myStruct2.name = "David"
@@ -31,9 +37,10 @@ myStruct2.name = "David"
 print(myStruct1.name)  // 출력: Mark
 print(myStruct2.name)  // 출력: David
 
+// 참조 타입
 let myClass1 = SampleClass(name: "Mark")
-var myClass2 = myClass1
+var myClass2 = myClass1.clone() // 값을 복사했기 때문에, 달라진다.
 myClass2.name = "David"
 
-print(myClass1.name)  // 출력: David
+print(myClass1.name)  // 출력: Mark
 print(myClass2.name)  // 출력: David
