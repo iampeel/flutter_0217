@@ -71,7 +71,7 @@ struct MinMaxVal<V: Comparable> {
 }
 
 struct IntDemo {
-    @MinMaxVal(min:10, max:200) var value: Int = 100
+    @MinMaxVal(min:10, max:200) var value: Int = 10
 }
 
 var demo = IntDemo()
@@ -82,12 +82,12 @@ demo.value = 250
 print(demo.value) // 출력: 200 (최댓값으로 제한됨)
 
 struct StringDemo {
-    @MinMaxVal(min: "Apple", max: "Orange") var value: String = ""
+    @MinMaxVal(min: "Apple", max: "Orange") var stringDemoValue: String = ""
 }
 
 var stringDemo = StringDemo()
-stringDemo.value = "Banana"
-print(stringDemo.value) // 출력: Banana
+stringDemo.stringDemoValue = "Banana"
+print(stringDemo.stringDemoValue) // 출력: Banana
 
-stringDemo.value = "Pear"
-print(stringDemo.value) // 출력: Orange (최댓값으로 제한됨)
+stringDemo.stringDemoValue = "Pear"
+print(stringDemo.stringDemoValue) // 출력: Orange (최댓값으로 제한됨)
