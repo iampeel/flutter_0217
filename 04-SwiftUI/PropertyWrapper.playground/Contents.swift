@@ -82,12 +82,12 @@ demo.value = 250
 print(demo.value) // 출력: 200 (최댓값으로 제한됨)
 
 struct StringDemo {
-    @MinMaxVal(min: "Apple", max: "Orange") var stringDemoValue: String = ""
+    @MinMaxVal(min: "가", max: "사") var stringDemoValue: String = ""
 }
 
 var stringDemo = StringDemo()
-stringDemo.stringDemoValue = "Banana"
+stringDemo.stringDemoValue = "감"
 print(stringDemo.stringDemoValue) // 출력: Banana
 
-stringDemo.stringDemoValue = "Pear"
+stringDemo.stringDemoValue = "잣"
 print(stringDemo.stringDemoValue) // 출력: Orange (최댓값으로 제한됨)
