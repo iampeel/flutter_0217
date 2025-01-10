@@ -17,9 +17,14 @@ struct ContentView: View {
     }
     
     func doSomething() {
+        print("Start \(Date())")
+        takesTooLong()
+        print("End \(Date())")
     }
     
     func takesTooLong() {
+        sleep(5)
+        print("Async task completed at \(Date())")
     }
 }
 
