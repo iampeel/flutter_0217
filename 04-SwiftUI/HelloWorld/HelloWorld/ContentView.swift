@@ -7,11 +7,25 @@
 
 import SwiftUI
 
+enum DurationError: Error {
+    case tooLong
+    case tooShort
+}
+
 struct ContentView: View {
     var body: some View {
         Button(action: {
-            Task {
+            // 작업의 우선순위를 결정할 수 있다.
+            Task(priority: .high) {
                 await doSomething()
+            }
+            // 분리된 작업
+            let detachedTask = Task.detached {
+                await doSomething()
+            }
+            
+            if(!detachedTask.isCancelled) {
+                detachedTask.cancel()
             }
         }) {
             Text("Do Something")
@@ -20,18 +34,28 @@ struct ContentView: View {
     
     func doSomething() async {
         print("Start \(Date())")
-        // 비동기 반환값을 위한 async let
-        async let result = takesTooLong()
-        print("After async-let \(Date())")
-        // async let 상수를 사용하려면, await
-        print("result \(await result)")
+        do {
+            try await takesTooLong(delay: 6)
+        } catch DurationError.tooShort {
+            print("Error: Duration too short")
+        } catch DurationError.tooLong {
+            print("Error: Duration too long")
+        } catch {
+            print("Unknown error")
+        }
         print("End \(Date())")
     }
     
-    func takesTooLong() async -> Date {
-        sleep(5)
-        return Date()
+    func takesTooLong(delay: UInt32) async throws {
+        if delay < 5 {
+            throw DurationError.tooShort
+        } else if delay > 20 {
+            throw DurationError.tooLong
+        }
+        sleep(delay)
+        print("Async task completed at \(Date())")
     }
+
 }
 
 #Preview {
