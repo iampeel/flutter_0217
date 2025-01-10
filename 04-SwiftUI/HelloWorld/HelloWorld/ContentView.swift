@@ -17,6 +17,11 @@ struct ContentView: View {
         Button(action: {
             // 작업의 우선순위를 결정할 수 있다.
             Task(priority: .high) {
+                // 작업의 우선순위를 확인하는 프로퍼티
+                _ = Task.currentPriority
+                // 작업의 취소 여부를 확인하는 프로퍼티
+                _ = Task.isCancelled
+                await Task.yield()
                 await doSomething()
             }
             // 분리된 작업
@@ -25,6 +30,7 @@ struct ContentView: View {
             }
             
             if(!detachedTask.isCancelled) {
+                // 작업 취소
                 detachedTask.cancel()
             }
         }) {
