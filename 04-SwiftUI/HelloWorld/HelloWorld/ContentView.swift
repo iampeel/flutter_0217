@@ -20,13 +20,17 @@ struct ContentView: View {
     
     func doSomething() async {
         print("Start \(Date())")
-        await takesTooLong()
+        // 비동기 반환값을 위한 async let
+        async let result = takesTooLong()
+        print("After async-let \(Date())")
+        // async let 상수를 사용하려면, await
+        print("result \(await result)")
         print("End \(Date())")
     }
     
-    func takesTooLong() async {
+    func takesTooLong() async -> Date {
         sleep(5)
-        print("Async task completed at \(Date())")
+        return Date()
     }
 }
 
