@@ -10,19 +10,21 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         Button(action: {
-            doSomething()
+            Task {
+                await doSomething()
+            }
         }) {
             Text("Do Something")
         }
     }
     
-    func doSomething() {
+    func doSomething() async {
         print("Start \(Date())")
-        takesTooLong()
+        await takesTooLong()
         print("End \(Date())")
     }
     
-    func takesTooLong() {
+    func takesTooLong() async {
         sleep(5)
         print("Async task completed at \(Date())")
     }
