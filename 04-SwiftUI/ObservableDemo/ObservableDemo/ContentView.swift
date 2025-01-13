@@ -12,7 +12,8 @@ struct ContentView: View {
     @State var timerData: TimerData = TimerData()
     
     var body: some View {
-        NavigationView {
+        // NavigationView 는 NavigationStack 으로 이름 변경됨
+        NavigationStack {
             VStack {
                 Text("Timer count = \(timerData.timeCount)")
                     .font(.largeTitle)

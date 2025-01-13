@@ -11,7 +11,7 @@ import Foundation
 // 최신 SwiftUI 에서는 @Observable 로 데이터 스트림 처리가 가능
 @Observable
 class TimerData {
-    var timeCount = 0
+    /* @Published 는 @Observable 에서 사라짐 ( 알아서 관리해줌 ) */ var timeCount = 0
     var timer: Timer?
     
     init() {
