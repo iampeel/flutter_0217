@@ -6,10 +6,12 @@
 //
 
 import Foundation
-import Combine
 
-class TimerData: ObservableObject {
-    @Published var timeCount = 0
+
+// 최신 SwiftUI 에서는 @Observable 로 데이터 스트림 처리가 가능
+@Observable
+class TimerData {
+    var timeCount = 0
     var timer: Timer?
     
     init() {
