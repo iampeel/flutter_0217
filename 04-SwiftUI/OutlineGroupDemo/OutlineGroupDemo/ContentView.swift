@@ -12,6 +12,7 @@ struct ContentView: View {
         List(carItems, children: \.children) { item in
             CellView(item: item)
         }
+        .listStyle(.grouped)
     }
 }
 
