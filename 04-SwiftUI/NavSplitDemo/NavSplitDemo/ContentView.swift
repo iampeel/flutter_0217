@@ -26,10 +26,13 @@ struct ContentView: View {
                                                       "cloud.drizzle"])
     ]
     
+    @State private var selectedCategory: IconCategory?
     
     var body: some View {
         NavigationSplitView {
-
+            List(categories, selection: $selectedCategory) { category in
+                Text(category.categoryName).tag(category)
+            }
         } content: {
             
         } detail: {
