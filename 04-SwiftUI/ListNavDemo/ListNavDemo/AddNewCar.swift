@@ -43,7 +43,7 @@ struct AddNewCar: View {
         let newCar = Car(id: UUID().uuidString,
                          name: name,
                          description: description,
-                         imageName: "telsa_model_3",
+                         imageName: "tesla_model_3",
                          isHybrid: isHybrid)
         carStore.cars.append(newCar)
         path.removeLast()
