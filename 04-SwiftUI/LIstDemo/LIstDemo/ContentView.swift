@@ -35,7 +35,7 @@ struct ContentView: View {
             Text("Auction the kids on eBay")
                 .listRowSeparatorTint(.red)
             Text("Order Pizza for dinner")
-                .listRowBackground(Image("Background"))
+                .listRowBackground(Image("background"))
         }
     }
 }
