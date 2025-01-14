@@ -52,6 +52,8 @@ struct ContentView: View {
                             }
                         }
                     }
+                    .onDelete(perform: deleteItem)
+                    .onMove(perform: moveItem)
                 }
             }
             // 네비게이션 바 타이틀 지정
@@ -59,9 +61,11 @@ struct ContentView: View {
 //            .navigationBarItems(trailing: Button("Add", action: {}))
             // 최신 업데이트: 네비게이션 바 아이템 대신 ToolbarItem 을 사용함.
             .toolbar(content: {
+                ToolbarItem(placement: .topBarLeading,
+                            content: {EditButton()})
                 ToolbarItem(placement: .primaryAction,
                             content: { Button("Add", action: {})})
-            })  
+            })
             // 네비게이션 바 스타일 변경
             .navigationBarTitleDisplayMode(.inline)
             // NavigationLink value 타입에 따른 뷰 빌더를 실행시켜주는 수정자
@@ -87,6 +91,19 @@ struct ContentView: View {
                 ]
             }
         }
+    }
+    
+    func deleteItem(at offsets: IndexSet) {
+        // 항목 삭제 로직
+        print("delete item: \(offsets)")
+        listData.remove(atOffsets: offsets)
+    }
+    
+    func moveItem(from source: IndexSet, to destination: Int) {
+        // 항목 이동 로직
+        print("source: \(source), destination: \(destination)")
+        listData.move(fromOffsets: source, toOffset: destination)
+        
     }
 }
 
