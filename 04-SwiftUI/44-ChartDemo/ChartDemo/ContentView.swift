@@ -39,8 +39,14 @@ struct ContentView: View {
                 x: .value("Month", data.month),
                 y: .value("Temp", data.degrees)
             )
+            .interpolationMethod(.cardinal)
             .foregroundStyle(by: .value("Year", data.year))
+            .symbol(by: .value("Year", data.year))
         }
+        .chartPlotStyle { plotArea in
+            plotArea.background(.gray.opacity(0.3))
+        }
+        .padding()
     }
 }
 
