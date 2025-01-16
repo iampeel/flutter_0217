@@ -47,5 +47,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(document: .constant(ImageDocDemoDocument()))
+    ContentView(document: .constant(ImageDocDemoDocument())) 
 }
