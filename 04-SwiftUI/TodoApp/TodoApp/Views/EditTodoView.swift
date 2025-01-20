@@ -20,6 +20,8 @@ struct EditTodoView: View {
     }
     
     var body: some View {
+        // NavigationStack 이 팝업일 경우에만 사용되어 뷰에서 분리함
+        // 다른 NavigationStack 에서 페이지를 부를 경우 오류가 발생함 (중복 NavigationStack)
         Form {
             Section {
                 TextField("Title", text: $title)
