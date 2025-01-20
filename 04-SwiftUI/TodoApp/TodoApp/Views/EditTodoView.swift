@@ -17,7 +17,7 @@ struct EditTodoView: View {
     init(todo: TodoItem) {
         self.todo = todo
         self._title = State(initialValue: todo.title)
-    }    
+    }
     
     var body: some View {
         NavigationStack {
