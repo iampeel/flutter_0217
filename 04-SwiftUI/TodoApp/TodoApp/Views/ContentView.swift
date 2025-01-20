@@ -8,10 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var todos: [TodoItem]
-    
+struct ContentView: View {    
     @State private var showingAddTodo = false
     
     var body: some View {
