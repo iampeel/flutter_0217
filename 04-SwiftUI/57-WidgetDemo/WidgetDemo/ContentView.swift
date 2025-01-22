@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+struct WeatherType: Hashable {
+    var name: String
+    var icon: String
+}
+
 struct ContentView: View {
     var body: some View {
         VStack {
