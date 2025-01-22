@@ -51,6 +51,13 @@
 			);
 			target = CCA203F62D40AF900081CB30 /* WeatherWidgetExtension */;
 		};
+		CCA204162D40B4840081CB30 /* Exceptions for "WeatherWidget" folder in "WidgetDemo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				WeatherData.swift,
+			);
+			target = CCA203D42D40AA040081CB30 /* WidgetDemo */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -62,6 +69,7 @@
 		CCA203FD2D40AF900081CB30 /* WeatherWidget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				CCA204162D40B4840081CB30 /* Exceptions for "WeatherWidget" folder in "WidgetDemo" target */,
 				CCA2040E2D40AF910081CB30 /* Exceptions for "WeatherWidget" folder in "WeatherWidgetExtension" target */,
 			);
 			path = WeatherWidget;
