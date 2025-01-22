@@ -24,6 +24,12 @@
 		CCB22F4B2D407C3000A5A25A /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CCB22F4A2D407C3000A5A25A /* Intents.intentdefinition */; };
 		CCB22F4C2D407C3000A5A25A /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CCB22F4A2D407C3000A5A25A /* Intents.intentdefinition */; };
 		CCB22F4D2D407C3000A5A25A /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CCB22F4A2D407C3000A5A25A /* Intents.intentdefinition */; };
+		CCB22F512D4082E500A5A25A /* PurchaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885AE3B42894705F001F3808 /* PurchaseData.swift */; };
+		CCB22F522D4082E500A5A25A /* PurchaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885AE3B628947086001F3808 /* PurchaseStore.swift */; };
+		CCB22F532D4082E500A5A25A /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885AE3B028947001001F3808 /* Purchase.swift */; };
+		CCB22F542D4082E500A5A25A /* PurchaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885AE3B42894705F001F3808 /* PurchaseData.swift */; };
+		CCB22F552D4082E500A5A25A /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885AE3B028947001001F3808 /* Purchase.swift */; };
+		CCB22F562D4082E500A5A25A /* PurchaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885AE3B628947086001F3808 /* PurchaseStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -342,6 +348,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCB22F4B2D407C3000A5A25A /* Intents.intentdefinition in Sources */,
+				CCB22F512D4082E500A5A25A /* PurchaseData.swift in Sources */,
+				CCB22F522D4082E500A5A25A /* PurchaseStore.swift in Sources */,
+				CCB22F532D4082E500A5A25A /* Purchase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +358,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCB22F542D4082E500A5A25A /* PurchaseData.swift in Sources */,
+				CCB22F552D4082E500A5A25A /* Purchase.swift in Sources */,
+				CCB22F562D4082E500A5A25A /* PurchaseStore.swift in Sources */,
 				CCB22F4D2D407C3000A5A25A /* Intents.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
