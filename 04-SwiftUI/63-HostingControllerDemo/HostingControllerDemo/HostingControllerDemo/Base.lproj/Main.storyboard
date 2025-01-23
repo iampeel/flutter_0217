@@ -16,18 +16,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4N-B6-v8X">
-                                <rect key="frame" x="159" y="409" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4N-B6-v8X">
+                                <rect key="frame" x="159" y="409" width="75" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="yv8-vj-0mF"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
-                                    <segue destination="Efu-7H-KAV" kind="show" id="BPT-ji-GCU"/>
+                                    <segue destination="Efu-7H-KAV" kind="show" destinationCreationSelector="showSwiftUIView:" id="BPT-ji-GCU"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="G4N-B6-v8X" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="306" id="0Yv-UX-N1H"/>
+                            <constraint firstItem="G4N-B6-v8X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FKc-RY-1Ma"/>
+                            <constraint firstItem="G4N-B6-v8X" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RU8-bL-2DY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jYb-iJ-y0L"/>
                 </viewController>
