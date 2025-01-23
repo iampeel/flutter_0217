@@ -13,25 +13,22 @@ struct ContentView: View {
     @State var selectedImage: Image? = Image(systemName: "photo")
     
     var body: some View {
-        ZStack {
-            VStack {
-                selectedImage?
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                
-                Button(action: {
-                    withAnimation {
-                        self.imagePickerVisible.toggle()
-                    }
-                }, label: {
-                    Text("Select an Image")
-                })
-            }
-            .padding()
+        VStack {
+            selectedImage?
+                .resizable()
+                .aspectRatio(contentMode: .fit)
             
-            if (imagePickerVisible) {
-                MyImagePicker(imagePickerVisible: $imagePickerVisible, selectedImage: $selectedImage)
-            }
+            Button(action: {
+                withAnimation {
+                    self.imagePickerVisible.toggle()
+                }
+            }, label: {
+                Text("Select an Image")
+            })
+        }
+        .padding()
+        .sheet(isPresented: $imagePickerVisible) {
+            MyImagePicker(imagePickerVisible: $imagePickerVisible, selectedImage: $selectedImage)
         }
     }
 }
