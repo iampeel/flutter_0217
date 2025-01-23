@@ -58,11 +58,21 @@
 			);
 			target = CCA203D42D40AA040081CB30 /* WidgetDemo */;
 		};
+		CCC1DE352D41E309005CDE8C /* Exceptions for "WidgetDemo" folder in "WidgetDemo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = CCA203D42D40AA040081CB30 /* WidgetDemo */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CCA203D72D40AA040081CB30 /* WidgetDemo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CCC1DE352D41E309005CDE8C /* Exceptions for "WidgetDemo" folder in "WidgetDemo" target */,
+			);
 			path = WidgetDemo;
 			sourceTree = "<group>";
 		};
