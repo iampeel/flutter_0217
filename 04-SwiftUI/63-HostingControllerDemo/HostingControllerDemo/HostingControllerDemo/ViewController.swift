@@ -19,5 +19,8 @@ class ViewController: UIViewController {
         return UIHostingController(coder: coder, rootView: SwiftUIView())
     }
     
+    @IBSegueAction func embedSwiftUIView(_ coder: NSCoder) -> UIViewController? {
+        return UIHostingController(coder: coder, rootView: SwiftUIView())
+    }
 }
 

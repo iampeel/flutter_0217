@@ -8,6 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Hosting Controller-->
+        <scene sceneID="nnR-r4-I0o">
+            <objects>
+                <hostingController id="d5z-5m-JIm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yH3-Q4-zYT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="847" y="-547"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -27,6 +35,12 @@
                                     <segue destination="Efu-7H-KAV" kind="show" destinationCreationSelector="showSwiftUIView:" id="BPT-ji-GCU"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTf-o0-RPc">
+                                <rect key="frame" x="16" y="103" width="361" height="298"/>
+                                <connections>
+                                    <segue destination="d5z-5m-JIm" kind="embed" destinationCreationSelector="embedSwiftUIView:" id="r4r-90-YZx"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -34,6 +48,10 @@
                             <constraint firstItem="G4N-B6-v8X" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="306" id="0Yv-UX-N1H"/>
                             <constraint firstItem="G4N-B6-v8X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FKc-RY-1Ma"/>
                             <constraint firstItem="G4N-B6-v8X" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RU8-bL-2DY"/>
+                            <constraint firstItem="hTf-o0-RPc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hbU-2c-KZG"/>
+                            <constraint firstItem="hTf-o0-RPc" firstAttribute="centerX" secondItem="G4N-B6-v8X" secondAttribute="centerX" id="i5L-Zr-FFN"/>
+                            <constraint firstItem="G4N-B6-v8X" firstAttribute="top" secondItem="hTf-o0-RPc" secondAttribute="bottom" constant="8" id="u7k-7k-EFc"/>
+                            <constraint firstItem="hTf-o0-RPc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="yla-3h-oUx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jYb-iJ-y0L"/>
