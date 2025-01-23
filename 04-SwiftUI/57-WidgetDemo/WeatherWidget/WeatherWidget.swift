@@ -13,14 +13,13 @@ struct Provider: AppIntentTimelineProvider {
         WeatherEntry(date: Date(), city: "-", temperature: 0, description: "-", icon: "circle.fill", image: "thunder", url: thunderUrl)
     }
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> WeatherEntry {
-        configuration.location.locationData.timeline[0]
+    func snapshot(for configuration: SelectCharacterIntent, in context: Context) async -> WeatherEntry {
+        return londonTimeline[0]
     }
     
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<WeatherEntry> {
+    func timeline(for configuration: SelectCharacterIntent, in context: Context) async -> Timeline<WeatherEntry> {
 
-        let timline = configuration.location.locationData.timeline
-        return Timeline(entries: timline, policy: .atEnd)
+        return Timeline(entries: londonTimeline, policy: .atEnd)
     }
 
 //    func relevances() async -> WidgetRelevances<ConfigurationAppIntent> {
@@ -76,7 +75,7 @@ struct WeatherWidget: Widget {
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind,
-                               intent: ConfigurationAppIntent.self,
+                               intent: SelectCharacterIntent.self,
                                provider: Provider()) { entry in
             WeatherWidgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
