@@ -13,6 +13,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let swiftUIViewController = UIHostingController(rootView: SwiftUIView())
+        addChild(swiftUIViewController)
+        swiftUIViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(swiftUIViewController.view)
+        
+        swiftUIViewController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        swiftUIViewController.view.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        swiftUIViewController.didMove(toParent: self)
     }
 
     @IBSegueAction func showSwiftUIView(_ coder: NSCoder) -> UIViewController? {
