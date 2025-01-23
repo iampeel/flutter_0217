@@ -17,7 +17,7 @@ struct LocationData: Identifiable {
     }
     
     static let london = LocationData(city: "London", timeline: londonTimeline)
-    static let miami = LocationData(city: "", timeline: miamiTimeline)
+    static let miami = LocationData(city: "Miami", timeline: miamiTimeline)
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(city)

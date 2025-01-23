@@ -8,45 +8,37 @@
 import WidgetKit
 import AppIntents
 
-
-struct WeatherLocation: AppEntity, InstanceDisplayRepresentable, TypeDisplayRepresentable {
+struct WeatherLocation: AppEntity {
     let locationData: LocationData
     
-    var id: UUID { UUID() }
+    var id: String { locationData.id }
     var name: String { locationData.city }
     
-    static var typeDisplayName: LocalizedStringResource = "Weather Location"
+    
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Weather Location"
     static var defaultQuery = WeatherLocationQuery()
     
-    // TypeDisplayRepresentable 프로토콜 요구사항
-    static var typeDisplayRepresentation: TypeDisplayRepresentation {
-        TypeDisplayRepresentation(
-            name: "Weather Location"
-        )
-    }
-    
-    // InstanceDisplayRepresentable 프로토콜 요구사항
     var displayRepresentation: DisplayRepresentation {
-        DisplayRepresentation(
-            title: "\(locationData.city)",
-            subtitle: "" // 필요한 경우 부제목 추가
-        )
+        DisplayRepresentation(title: "\(locationData.city) \(id)")
     }
+
+    static let allLocations: [WeatherLocation] = [
+        WeatherLocation(locationData: LocationData.london),
+        WeatherLocation(locationData: LocationData.miami),
+    ]
 }
 
 struct WeatherLocationQuery: EntityQuery {
-    func entities(for identifiers: [UUID]) async throws -> [WeatherLocation] {
-        [
-            WeatherLocation(locationData: LocationData.london),
-            WeatherLocation(locationData: LocationData.miami),
-        ]
+    func entities(for identifiers: [String]) async throws -> [WeatherLocation] {
+        return WeatherLocation.allLocations.filter( { identifiers.contains($0.id) })
     }
     
     func suggestedEntities() async throws -> some ResultsCollection {
-        [
-            WeatherLocation(locationData: LocationData.london),
-            WeatherLocation(locationData: LocationData.miami),
-        ]
+        return WeatherLocation.allLocations
+    }
+    
+    func defaultResult() async -> WeatherLocation? {
+        try? await suggestedEntities().first
     }
 }
 
@@ -54,6 +46,13 @@ struct ConfigurationAppIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource { "Configuration" }
     static var description: IntentDescription { "This is an example widget." }
 
-    @Parameter(title: "Location", default: WeatherLocation(locationData: LocationData.london))
+    @Parameter(title: "Location", default: WeatherLocation.allLocations.first )
     var location: WeatherLocation
+    
+    
+    init(location: WeatherLocation) {
+        self.location = location
+    }
+    
+    init() {}
 }

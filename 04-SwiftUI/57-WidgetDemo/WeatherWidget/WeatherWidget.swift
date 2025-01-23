@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> WeatherEntry {
-        WeatherEntry(date: Date(), city: "-", temperature: 0, description: "-", icon: "circle.fill", image: "", url: thunderUrl)
+        WeatherEntry(date: Date(), city: "-", temperature: 0, description: "-", icon: "circle.fill", image: "thunder", url: thunderUrl)
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> WeatherEntry {
@@ -75,7 +75,9 @@ struct WeatherWidget: Widget {
     let kind: String = "WeatherWidget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
+        AppIntentConfiguration(kind: kind,
+                               intent: ConfigurationAppIntent.self,
+                               provider: Provider()) { entry in
             WeatherWidgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }
