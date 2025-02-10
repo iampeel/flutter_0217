@@ -35,15 +35,11 @@ void main() {
   }
 
   // 슬래시, 별, 쉼표, 세미콜론 등이 상수 변수인 경우...
-  const slash = '/';
-  const star = '*';
-  const plus = '+';
-  const minus = '-';
 
   String charCode = '1';
 
   switch (charCode) {
-    case slash || star || plus || minus:
+    case '/' || '*' || '+' || '-':
       print('Mathematical operator');
     default:
       print('Unknown');
@@ -58,4 +54,15 @@ void main() {
     default:
       print('Unknown');
   }
+
+  // switch statement with return
+  print(smallSwitchReturn(1));
+}
+
+String smallSwitchReturn(int intValue) {
+  return switch (intValue) {
+    1 => "value is 1",
+    2 => "value is 2",
+    _ => "another value"
+  };
 }
