@@ -5,6 +5,7 @@ void main() {
   // if-else statement: 조건이 참이면 if 블록 실행, 거짓이면 else 블록 실행
   if (isFootball) {
     print('Go football');
+    // ignore: dead_code
   } else {
     print('Go Sports!');
   }
