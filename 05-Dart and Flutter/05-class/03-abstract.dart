@@ -50,6 +50,18 @@ class Book implements Media {
   String getMediaId() {
     return myId;
   }
+
+  Book() {
+    myTitle = '';
+    myType = '';
+    myId = '';
+  }
+
+  Book.withParams(String mediaTitle, String mediaType, String mediaId) {
+    myTitle = mediaTitle;
+    myType = mediaType;
+    myId = mediaId;
+  }
 }
 
 void main() {
@@ -62,4 +74,10 @@ void main() {
   print('Media ID: ${myBook.getMediaId()}');
   print('Media Title: ${myBook.getMediaTitle()}');
   print('Media Type: ${myBook.getMediaType()}');
+
+  // 클래스 메서드를 사용하여 인스턴스 생성
+  var myBook2 = Book.withParams('Dart Programming', 'Book', '1234');
+
+  print('Media ID: ${myBook2.getMediaId()}');
+  print('Media Title: ${myBook2.getMediaTitle()}');
 }
