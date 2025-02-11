@@ -6,7 +6,7 @@ class Media {
     type = "Class";
   }
 
-  void setMedidaTitle(String mediaTitle) {
+  void setMediaTitle(String mediaTitle) {
     title = mediaTitle;
   }
 
@@ -48,12 +48,12 @@ class Book extends Media {
 void main() {
   var myMedia = Media();
 
-  myMedia.setMedidaTitle("Dart Programming");
+  myMedia.setMediaTitle("Dart Programming");
   print('Media Title: ${myMedia.getMediaTitle()}');
   print('Media Type: ${myMedia.getMediaType()}');
 
   var myBook = Book();
-  myBook.setMedidaTitle("Dart Programming");
+  myBook.setMediaTitle("Dart Programming");
   myBook.setBookAuthor("John Doe");
   myBook.setBookPublisher("Dart Publisher");
 
