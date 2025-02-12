@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Flutter Demo',
-      home: Text('Hello World'),
+      home: Scaffold(body: Center(child: Text('Hello World'))),
     );
   }
 }
