@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowMaterialGrid: false,
+      debugShowCheckedModeBanner: true,
     );
   }
 }
@@ -54,7 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
