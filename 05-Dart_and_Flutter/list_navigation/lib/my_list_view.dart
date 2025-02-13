@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+
+import 'my_details.dart';
 
 class ListDataItems {
   final List<String> monthItems = [
@@ -29,7 +30,8 @@ class MyListView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('ListView'),
       ),
-      body: ListView.builder(
+      // ListView.separated를 사용하여 리스트 뷰를 생성합니다.
+      body: ListView.separated(
         itemCount: item.monthItems.length,
         itemBuilder: (context, index) {
           return ListTile(
@@ -43,24 +45,17 @@ class MyListView extends StatelessWidget {
                             MyDetails(item.monthItems[index])));
               });
         },
-        itemExtent: 50,
-      ),
-    );
-  }
-}
-
-class MyDetails extends StatelessWidget {
-  final String month;
-  const MyDetails(this.month, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(month),
-      ),
-      body: Center(
-        child: Text('This is the details page for $month'),
+        // Divider 위젯을 사용하여 리스트 간의 구분선을 생성합니다.
+        // color, thickness, height, indent 속성을 사용하여 색상, 두께, 높이, 들여쓰기를 설정합니다.
+        separatorBuilder: (BuildContext context, int index) {
+          return const Divider(
+            color: Colors.grey,
+            thickness: 1,
+            height: 1,
+            indent: 16,
+            endIndent: 4,
+          );
+        },
       ),
     );
   }
