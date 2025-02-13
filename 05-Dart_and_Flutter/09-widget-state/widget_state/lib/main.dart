@@ -1,11 +1,37 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 // 메인 함수
 void main() {
   // runApp 함수를 호출하여 MyApp 위젯을 실행
   runApp(const MyApp());
+}
+
+class PlatformCheck extends StatelessWidget {
+  const PlatformCheck({Key? key}) : super(key: key);
+
+  bool get isWeb => kIsWeb;
+  bool get isMobileDevice => Platform.isAndroid || Platform.isIOS;
+  bool get isDesktop =>
+      Platform.isMacOS || Platform.isWindows || Platform.isLinux;
+  bool get isMobileDeviceOrWeb => isMobileDevice || isWeb;
+
+  @override
+  Widget build(BuildContext context) {
+    if (kIsWeb) {
+      return const Text('Running on the web!');
+    } else if (Platform.isAndroid) {
+      return const Text('Running on Android!');
+    } else if (Platform.isIOS) {
+      return const Text('Running on iOS!');
+    } else {
+      return const Text('Running on Fuchsia!');
+    }
+  }
 }
 
 // MyApp 위젯: StatelessWidget 상태관리가 필요하지 않은 단순한 형태의 위젯
@@ -56,24 +82,29 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.grey,
       // body 속성에 Center 위젯을 사용하여 화면 중앙에 컨텐츠를 배치
-      body: _buildContainer(context),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // PlatformCheck 위젯을 생성하여 화면에 표시
+          PlatformCheck(),
+          _buildContainer(context),
+        ],
+      ),
     );
   }
 
   Widget _buildContainer(BuildContext context) {
-    // LayoutBuilder 위젯: 부모 위젯의 크기에 따라 자식 위젯의 레이아웃을 동적으로 변경
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (kDebugMode) {
-          debugPrint('constraints.maxWidth: ${constraints.maxWidth}');
-        }
-        if (constraints.maxWidth > 600) {
-          return _buildWideContainers();
-        } else {
-          return _buildNarrowContainers();
-        }
-      },
-    );
+    // kIsWeb 변수를 사용하여 현재 플랫폼이 웹인지 확인
+    if (kIsWeb) {
+      return _buildWideContainers();
+      // Platform 클래스는 현재 플랫폼을 확인하는 기능을 제공
+    } else if (Platform.isAndroid) {
+      return _buildWideContainers();
+    } else if (Platform.isIOS) {
+      return _buildNarrowContainers();
+    } else {
+      return _buildNarrowContainers();
+    }
   }
 
   Widget _buildWideContainers() {
