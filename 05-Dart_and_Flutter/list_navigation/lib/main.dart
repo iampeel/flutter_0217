@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:list_navigation/shared_preference_demo.dart';
 
 import 'text_field_demo.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const TextFieldDemo(),
+      home: SharedPreferenceDemo(),
     );
   }
 }
