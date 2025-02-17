@@ -16,7 +16,7 @@ class DrawerDemo extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero, // 상단 기본 패딩 제거
           children: [
-            // 드로어 상단 헤더 영역
+            // 서랍 상단 헤더 영역
             const DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.blue, // 헤더 배경색
@@ -62,7 +62,7 @@ class DrawerDemo extends StatelessWidget {
               leading: const Icon(Icons.home), // 왼쪽 아이콘
               title: const Text('홈'), // 메뉴 제목
               onTap: () {
-                Navigator.pop(context); // 드로어 닫기
+                Navigator.pop(context); // 서랍 닫기
                 // 홈 화면으로 이동하는 로직 추가 가능
               },
             ),
@@ -72,7 +72,7 @@ class DrawerDemo extends StatelessWidget {
               leading: const Icon(Icons.settings),
               title: const Text('설정'),
               onTap: () {
-                Navigator.pop(context); // 드로어 닫기
+                Navigator.pop(context); // 서랍 닫기
                 // 설정 화면으로 이동하는 로직 추가 가능
               },
             ),
@@ -99,7 +99,7 @@ class DrawerDemo extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                Navigator.pop(context); // 드로어 닫기
+                Navigator.pop(context); // 서랍 닫기
                 // 알림 화면으로 이동하는 로직 추가 가능
               },
             ),
@@ -109,7 +109,7 @@ class DrawerDemo extends StatelessWidget {
               leading: const Icon(Icons.logout),
               title: const Text('로그아웃'),
               onTap: () {
-                Navigator.pop(context); // 드로어 닫기
+                Navigator.pop(context); // 서랍 닫기
                 // 로그아웃 처리 로직 추가 가능
               },
             ),
