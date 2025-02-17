@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'shared_preference_demo.dart';
+import 'navigator_demo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: SharedPreferenceDemo(),
+      home: NavigatorDemo(),
     );
   }
 }
